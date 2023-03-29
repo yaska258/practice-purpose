@@ -73,7 +73,7 @@ resource "azurerm_linux_virtual_machine" "azureproject" {
 }
 
 data "azurerm_public_ip" "azureproject" {
-  name                = azurerm_public_ip.azureproject.name
+  name                = azurerm_public_ip.azureproject_VNET.name
   resource_group_name = azurerm_virtual_machine.azureproject_VNET.resource_group_name
 }
 
