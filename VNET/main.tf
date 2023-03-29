@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "azureproject_VNET" {
-  name     = "azureproject-resources"
+  name     = "azureproject_VNET-resources"
   location = "West Europe"
 }
 
