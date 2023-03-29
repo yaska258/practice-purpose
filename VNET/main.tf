@@ -3,21 +3,21 @@ resource "azurerm_resource_group" "azureproject_VNET" {
   location = "Central US"
 }
 
-resource "azurerm_virtual_network" "azureproject_VNET" {
+resource "azurerm_virtual_network" "azureproject" {
   name                = "azureproject-network"
   address_space       = ["10.0.0.0/16"]
   location            = azurerm_resource_group.azureproject_VNET.location
   resource_group_name = azurerm_resource_group.azureproject_VNET.name
 }
 
-resource "azurerm_subnet" "azureproject_VNET" {
+resource "azurerm_subnet" "azureproject" {
   name                 = "internal"
   resource_group_name  = azurerm_resource_group.azureproject_VNET.name
   virtual_network_name = azurerm_virtual_network.azureproject.name
   address_prefixes     = ["10.0.2.0/24"]
 }
 
-resource "azurerm_public_ip" "azureproject_VNET" {
+resource "azurerm_public_ip" "azureproject" {
   name                    = "azureproject-pip"
   location                = azurerm_resource_group.azureproject_VNET.location
   resource_group_name     = azurerm_resource_group.azureproject_VNET.name
@@ -71,7 +71,6 @@ resource "azurerm_linux_virtual_machine" "azureproject" {
     version   = "latest"
   }
 }
-
 
 
 
