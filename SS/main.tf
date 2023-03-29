@@ -5,8 +5,8 @@ resource "azurerm_resource_group" "azureproject_SS" {
 
 resource "azurerm_virtual_network" "azureproject" {
   name                = "azureproject-network"
-  resource_group_name = azurerm_resource_group.azureproject.name
-  location            = azurerm_resource_group.azureproject.location
+  resource_group_name = azurerm_resource_group.azureproject_SS.name
+  location            = azurerm_resource_group.azureproject_SS.location
   address_space       = ["10.0.0.0/16"]
 }
 
