@@ -29,8 +29,6 @@ resource "azurerm_public_ip" "azureproject" {
   }
 }
 
-cd
-ter
 resource "azurerm_network_interface" "azureproject" {
   name                = "azureproject-nic"
   location            = azurerm_resource_group.azureproject_VNET.location
