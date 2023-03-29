@@ -74,7 +74,7 @@ resource "azurerm_linux_virtual_machine" "azureproject" {
 
 data "azurerm_public_ip" "azureproject" {
   name                = azurerm_public_ip.azureproject.name
-  resource_group_name = azurerm_virtual_machine.azureproject.resource_group_name
+  resource_group_name = azurerm_virtual_machine.azureproject_VNET.resource_group_name
 }
 
 output "public_ip_address" {
