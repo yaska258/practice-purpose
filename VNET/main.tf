@@ -1,4 +1,4 @@
-resource "azurerm_resource_group" "azureproject" {
+resource "azurerm_resource_group" "azureproject_VNET" {
   name     = "azureproject-resources"
   location = "West Europe"
 }
