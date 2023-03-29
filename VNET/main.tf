@@ -46,8 +46,8 @@ resource "azurerm_network_interface" "azureproject" {
 
 resource "azurerm_linux_virtual_machine" "azureproject_LM" {   #LM= Linux virtual machine
   name                = "azureproject-machine"
-  resource_group_name = azurerm_resource_group.azureproject_VNET.name
-  location            = azurerm_resource_group.azureproject_VNET.location
+  resource_group_name = azurerm_resource_group.azureproject_LM.name
+  location            = azurerm_resource_group.azureproject_LM.location
   size                = "Standard_F2"
   admin_username      = "adminuser"
   network_interface_ids = [
