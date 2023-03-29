@@ -3,7 +3,7 @@ resource "azurerm_resource_group" "azureproject_LB" {
   location = "Central US"
 }
 
-resource "azurerm_public_ip" "azureproject" {
+resource "azurerm_public_ip" "azureproject_LB" {
   name                = "PublicIPForLB"
   location            = azurerm_resource_group.azureproject_LB.location
   resource_group_name = azurerm_resource_group.azureproject_LB.name
