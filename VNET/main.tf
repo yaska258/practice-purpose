@@ -19,8 +19,8 @@ resource "azurerm_subnet" "azureproject" {
 
 resource "azurerm_public_ip" "azureproject" {
   name                    = "azureproject-pip"
-  location                = azurerm_resource_group.azureproject.location
-  resource_group_name     = azurerm_resource_group.azureproject.name
+  location                = azurerm_resource_group.azureproject_VNET.location
+  resource_group_name     = azurerm_resource_group.azureproject_VNET.name
   allocation_method       = "Dynamic"
   idle_timeout_in_minutes = 30
 
@@ -28,6 +28,8 @@ resource "azurerm_public_ip" "azureproject" {
     environment = "test"
   }
 }
+
+
 
 resource "azurerm_network_interface" "azureproject" {
   name                = "azureproject-nic"
