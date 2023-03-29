@@ -17,6 +17,20 @@ resource "azurerm_subnet" "azureproject" {
   address_prefixes     = ["10.0.2.0/24"]
 }
 
+resource "azurerm_public_ip" "azureproject" {
+  name                    = "azureproject-pip"
+  location                = azurerm_resource_group.azureproject.location
+  resource_group_name     = azurerm_resource_group.azureproject.name
+  allocation_method       = "Dynamic"
+  idle_timeout_in_minutes = 30
+
+  tags = {
+    environment = "test"
+  }
+}
+
+
+
 resource "azurerm_network_interface" "azureproject" {
   name                = "azureproject-nic"
   location            = azurerm_resource_group.azureproject_VNET.location
@@ -26,6 +40,7 @@ resource "azurerm_network_interface" "azureproject" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.azureproject.id
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.azureproject.id
   }
 }
 
@@ -55,4 +70,13 @@ resource "azurerm_linux_virtual_machine" "azureproject" {
     sku       = "16.04-LTS"
     version   = "latest"
   }
+}
+
+data "azurerm_public_ip" "azureproject" {
+  name                = azurerm_public_ip.azureproject.name
+  resource_group_name = azurerm_virtual_machine.azureproject.resource_group_name
+}
+
+output "public_ip_address" {
+  value = data.azurerm_public_ip.azureproject.ip_address
 }
