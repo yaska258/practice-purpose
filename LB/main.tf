@@ -1,6 +1,6 @@
 resource "azurerm_resource_group" "azureproject_LB" {
   name     = "azureproject_LB-resources"
-  location = "Central US"
+  location = "West Europe"
 }
 
 resource "azurerm_public_ip" "azureproject_LB" {

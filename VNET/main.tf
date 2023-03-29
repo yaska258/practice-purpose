@@ -1,6 +1,6 @@
 resource "azurerm_resource_group" "azureproject_VNET" {
   name     = "azureproject_VNET-resources"
-  location = "Central US"
+  location = "West Europe"
 }
 
 resource "azurerm_virtual_network" "azureproject" {

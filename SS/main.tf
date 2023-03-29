@@ -1,6 +1,6 @@
 resource "azurerm_resource_group" "azureproject_SS" {
   name     = "azureproject-resources"
-  location = "Central US"
+  location = "West Europe"
 }
 
 resource "azurerm_virtual_network" "azureproject" {
