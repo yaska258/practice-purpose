@@ -13,7 +13,7 @@ resource "azurerm_virtual_network" "azureproject_VM" {
 resource "azurerm_subnet" "azureproject" {
   name                 = "internal"
   resource_group_name  = azurerm_resource_group.azureproject_VNET.name
-  virtual_network_name = azurerm_virtual_network.azureproject_VNET.name
+  virtual_network_name = azurerm_virtual_network.azureproject_VM.name
   address_prefixes     = ["10.0.2.0/24"]
 }
 
