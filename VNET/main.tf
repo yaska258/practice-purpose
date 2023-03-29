@@ -74,7 +74,5 @@ resource "azurerm_linux_virtual_machine" "azureproject" {
 
 
 
-output "public_ip_address" {
-  value = data.azurerm_public_ip.azureproject.ip_address
-}
+
 
