@@ -3,7 +3,7 @@ resource "azurerm_resource_group" "azureproject_VNET" {
   location = "Central US"
 }
 
-resource "azurerm_virtual_network" "azureproject" {
+resource "azurerm_virtual_network" "azureproject_VNET" {
   name                = "azureproject-network"
   address_space       = ["10.0.0.0/16"]
   location            = azurerm_resource_group.azureproject_VNET.location
